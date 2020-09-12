@@ -83,6 +83,23 @@ for c in cities:
 # TODO Get latitude and longitude values from the user
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+  #setting up bounding box
+  if lon1 < lon2:
+    if lat1 < lat2:
+      LL = (lat1, lon1)
+      UR = (lat2, lon2)
+    else:
+      LL = (lat2, lon1)
+      UR = (lat1, lon2)
+  else:
+    if lat1 < lat2:
+      LL = (lat1, lon2)
+      UR = (lat2, lon1)
+    else:
+      LL = (lat2, lon2)
+      UR = (lat1, lon1)
+
+
   # within will hold the cities that fall within the specified region
   within = []
   
